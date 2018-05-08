@@ -1,0 +1,36 @@
+#produtos-body{
+
+
+}
+
+#produtos-body h3{
+
+	text-align: center;
+}
+
+#div-left{
+    background-color: greenyellow;
+    float: left;
+ 	padding-bottom: 20px;
+    width: 500px;
+    height: 500px;
+    margin-left: 120px;
+}
+
+#div-right{
+    background-color: activeborder;
+    float : right;
+ 	padding-bottom: 20px;
+    width: 500px;
+    height: 500px;
+    margin-right: 120px;
+}
+
+button{
+    margin-right: 20px;
+    float: right; ;
+}
+
+#btnEnviar {
+    padding-right: 90px;
+}

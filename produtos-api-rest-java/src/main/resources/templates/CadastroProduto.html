@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Cadastro de Produto</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet"></link>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<strong>Cadastro de Produto</strong>
+		</div>
+		<div class="panel-body">
+			<form class="form-horizontal" th:object="${produtos}"
+				th:action="@{/save}" method="POST" style="margin: 10px">
+				<div class="form-group">
+					<fieldset>
+						<div class="form-group row">
+							<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+								<div th:each="detailedError : ${#fields.detailedErrors()}">
+									<span th:text="${detailedError.message}"></span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-1">
+								<input type="text" class="form-control input-sm" id="id"
+									th:field="*{id}" readOnly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4"
+								th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
+								<label>Nome</label> <input type="text"
+									class="form-control input-sm" th:field="*{nome}"
+									autofocus="autofocus" placeholder="Informe o nome"
+									maxlength="50" />
+							</div>
+						</div>
+						<div class="form-group"
+							th:classappend="${#fields.hasErrors('valor')} ? has-error">
+							<label for="valor" class="col-sm-2 control-label">Valor</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="valor" name="valor" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-2"
+								th:classappend="${#fields.hasErrors('validade')}? 'has-error'">
+								<label>Validade</label> <input type="validade"
+									class="form-control input-sm" th:field="*{validade}" />
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="form-group row">
+					<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+					<a th:href="@{/}" class="btn btn-sm btn-default">Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+</body>
+</html>
